@@ -1,0 +1,205 @@
+
+local http = game:GetService("HttpService")
+local luawl = {["token"] = nil}
+
+local token = luawl["token"]
+
+
+local http_request = (syn and syn.request or KRNL_LOADED and request or getexecutorname and http.request)
+if not http_request then
+	game.Players.LocalPlayer:Kick("Executor not supported for luaGuard api")
+end
+luawl.WhitelistUser = function(discordid)
+	local a = http_request({Url = "https://api.luawl.com/whitelistUser.php",Method = "POST",["Headers"] = {
+		["Content-Type"] = "application/json"
+	},
+
+	Body = http:JSONEncode({
+		["discord_id"] = tostring(discordid),
+		["token"] = tostring(token)
+	})
+	})
+	return a.Body
+end
+
+luawl.GetKeyFromId = function(discordid)
+	local a = http_request({Url = "https://api.luawl.com/getKey.php",Method = "POST",["Headers"] = {
+		["Content-Type"] = "application/json"
+	},
+
+	Body = game:GetService("HttpService"):JSONEncode({
+		["discord_id"] = tostring(discordid),
+		["token"] = tostring(token)
+	})
+	})
+	return tostring(a.Body)
+end
+
+luawl.GetKeyFromKey = function(key)
+	local a = http_request({Url = "https://api.luawl.com/getKey.php",Method = "POST",["Headers"] = {
+		["Content-Type"] = "application/json"
+	},
+
+	Body = game:GetService("HttpService"):JSONEncode({
+		["wl_key"] = tostring(key),
+		["token"] = tostring(token)
+	})
+	})
+	return tostring(a.Body)
+end
+
+luawl.ResetHwidFromId = function(discordid)
+	local a = http_request({Url = "https://api.luawl.com/resetHWID.php",Method = "POST",
+		["Headers"] = {
+			["Content-Type"] = "application/json"
+		},
+
+		Body = game:GetService("HttpService"):JSONEncode({
+			["discord_id"] = tostring(discordid),
+			["token"] = tostring(token)
+		})
+	})
+	return a.Body
+end
+
+luawl.ResetHwidFromKey = function(key)
+	local a = http_request({Url = "https://api.luawl.com/resetHWID.php",Method = "POST",
+		["Headers"] = {
+			["Content-Type"] = "application/json"
+		},
+
+		Body = game:GetService("HttpService"):JSONEncode({
+			["wl_key"] = tostring(ket),
+			["token"] = tostring(token)
+		})
+	})
+	return a.Body
+end
+
+luawl.DeleteKeyFromId = function(discordid)
+	local a = http_request({Url = "https://api.luawl.com/disableKey.php",Method = "POST",
+		["Headers"] = {
+			["Content-Type"] = "application/json"
+		},
+
+		Body = game:GetService("HttpService"):JSONEncode({
+			["discord_id"] = tostring(discordid),
+			["token"] = tostring(token)
+		})
+	})
+	return a.Body
+end
+
+luawl.DeleteKeyFromKey = function(key)
+	local a = http_request({Url = "https://api.luawl.com/disableKey.php",Method = "POST",
+		["Headers"] = {
+			["Content-Type"] = "application/json"
+		},
+
+		Body = game:GetService("HttpService"):JSONEncode({
+			["wl_key"] = tostring(key),
+			["token"] = tostring(token)
+		})
+	})
+	return a.Body
+end
+
+luawl.BlacklistUserFromKey = function(key)
+	local a = http_request({Url = "https://api.luawl.com/createBlacklist.php",Method = "POST",
+		["Headers"] = {
+			["Content-Type"] = "application/json"
+		},
+
+		Body = game:GetService("HttpService"):JSONEncode({
+			["wl_key"] = tostring(key),
+			["token"] = tostring(token)
+		})
+	})
+	return a.Body
+end
+
+luawl.BlacklistUserFromId = function(id)
+	local a = http_request({Url = "https://api.luawl.com/createBlacklist.php",Method = "POST",
+		["Headers"] = {
+			["Content-Type"] = "application/json"
+		},
+
+		Body = game:GetService("HttpService"):JSONEncode({
+			["discord_id"] = tostring(id),
+			["token"] = tostring(token)
+		})
+	})
+	return a.Body
+end
+
+luawl.RemoveBlacklistUserFromKey = function(key)
+	local a = http_request({Url = "https://api.luawl.com/removeBlacklist.php",Method = "POST",
+		["Headers"] = {
+			["Content-Type"] = "application/json"
+		},
+
+		Body = game:GetService("HttpService"):JSONEncode({
+			["wl_key"] = tostring(key),
+			["token"] = tostring(token)
+		})
+	})
+	return a.Body
+end
+
+luawl.RemoveBlacklistUserFromId = function(id)
+	local a = http_request({Url = "https://api.luawl.com/removeBlacklist.php",Method = "POST",
+		["Headers"] = {
+			["Content-Type"] = "application/json"
+		},
+
+		Body = game:GetService("HttpService"):JSONEncode({
+			["discord_id"] = tostring(id),
+			["token"] = tostring(token)
+		})
+	})
+	return a.Body
+end
+
+
+
+luawl.IsOnCooldown = function(id)
+	local a = http_request({Url = "https://api.luawl.com/isOnCooldown.php",Method = "POST",
+		["Headers"] = {
+			["Content-Type"] = "application/json"
+		},
+
+		Body = game:GetService("HttpService"):JSONEncode({
+			["discord_id"] = tostring(id),
+			["token"] = tostring(token)
+		})
+	})
+	return a.Body
+end
+
+luawl.RemoveCooldown = function(id)
+	local a = http_request({Url = "https://api.luawl.com/removeCooldown.php",Method = "POST",
+		["Headers"] = {
+			["Content-Type"] = "application/json"
+		},
+
+		Body = game:GetService("HttpService"):JSONEncode({
+			["discord_id"] = tostring(id),
+			["token"] = tostring(token)
+		})
+	})
+	return a.Body
+end
+
+luawl.GetAccountScripts = function(token)
+    local a = http_request({Url = "https://api.luawl.com/getAccountScripts.php",Method = "POST",
+		["Headers"] = {
+			["Content-Type"] = "application/json"
+		},
+
+		Body = game:GetService("HttpService"):JSONEncode({
+			["token"] = tostring(token)
+		})
+	})
+	return a.Body
+end
+return luawl
