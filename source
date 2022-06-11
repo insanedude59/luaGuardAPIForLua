@@ -1,4 +1,3 @@
-
 local http = game:GetService("HttpService")
 local luawl = {}
 
@@ -202,4 +201,3 @@ luawl.GetAccountScripts = function(token)
 	})
 	return a.Body
 end
-return luawl
