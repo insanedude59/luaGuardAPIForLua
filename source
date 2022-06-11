@@ -1,8 +1,8 @@
 
 local http = game:GetService("HttpService")
-local luawl = {["token"] = nil}
+local luawl = {}
 
-local token = luawl["token"]
+local token = getgenv().token
 
 
 local http_request = (syn and syn.request or KRNL_LOADED and request or getexecutorname and http.request)
