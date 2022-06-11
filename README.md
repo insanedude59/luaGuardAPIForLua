@@ -50,7 +50,7 @@ luawl.RemoveBlacklistUserFromKey("key") -- the parameter must be a string
 ```
 ### luawl.RemoveBlacklistUserFromId
 ```lua
-luawl.RemoveBlacklistUserFromId("discordid")
+luawl.RemoveBlacklistUserFromId("discordid")-- the parameter must be a string
 ```
 ### luawl.IsOnCooldown
 ```lua
