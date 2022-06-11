@@ -39,8 +39,9 @@ luawl.DeleteKeyFromKey("key") -- the parameter must be a string
 ```lua
 luawl.BlacklistUserFromKey("key") -- the parameter must be a string
 ```
+### luawl.BlacklistUserFromId
 ```lua
-luawl.BlacklistUserFromId() -- the parameter must be a string
+luawl.BlacklistUserFromId("id") -- the parameter must be a string
 ```
 
 ### RemoveBlacklistUserFromKey
